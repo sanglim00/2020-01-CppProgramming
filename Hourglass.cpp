@@ -1,6 +1,6 @@
 /* **************************
-Problem : �𷡽ð� ����ϱ�
-20191584 ����
+Problem : 모래시계 출력하기
+20191584 남상림
 ****************************/
 
 #include <iostream>
@@ -16,29 +16,17 @@ int main() {
 
 		cin >> num;
 		len = num / 2;
+		
 		while (row <= num) {
-			if (row % 2 == 1) {
-				if (col % 2 == 1) {
-					cout << "*";
-					col++;
-				}
-				else {
-					cout << "+";
-					col++;
-				}
-				row++;	
+			if (col % 2 == 1) {
+				cout << "*";
+				col++;
 			}
 			else {
-				if (col % 2 == 1) {
-					cout << "*";
-					col++;
-				}
-				else {
-					cout << "+";
-					col++;
-				}
-				row++;
+				cout << "+";
+				col++;
 			}
+			row++;	
 		}
 	}
 }
