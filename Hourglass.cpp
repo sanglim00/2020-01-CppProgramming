@@ -1,6 +1,6 @@
 /* **************************
-Problem : 모래시계 출력하기
-20191584 남상림
+Problem : �𷡽ð� ����ϱ�
+20191584 ����
 ****************************/
 
 #include <iostream>
@@ -8,25 +8,31 @@ Problem : 모래시계 출력하기
 using namespace std;
 
 int main() {
-	int times, num, len;
-	int row = 1, col =1;
+	int times, num;
 
 	cin >> times;
 	for (int i = 0; i < times; i++) {
-
-		cin >> num;
-		len = num / 2;
 		
-		while (row <= num) {
-			if (col % 2 == 1) {
-				cout << "*";
-				col++;
+		cin >> num;
+		int n = 0;
+		for (int j = 0; j < num; j++) {
+			if (j < num / 2 ) {
+				for (int k = num/2; k >= 0 ; k--) {
+					if (j > k)
+						cout << "-";
+					else
+						cout << "*";
+				}
 			}
 			else {
-				cout << "+";
-				col++;
+				for (int k = num / 2; k < num; k++) {
+					if (k > j)
+						cout << "-";
+					else
+						cout << "*";
+				}
 			}
-			row++;	
+			cout << endl;
 		}
 	}
 }
