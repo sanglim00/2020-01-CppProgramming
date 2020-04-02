@@ -1,6 +1,6 @@
 /* **************************
-Problem : ¼ıÀÚ·Î »ï°¢Çü Ãâ·ÂÇÏ±â
-20191584 ³²»ó¸²
+Problem : ìˆ«ìë¡œ ì‚¼ê°í˜• ì¶œë ¥í•˜ê¸°
+20191584 ë‚¨ìƒë¦¼
 ****************************/
 
 #include <iostream>
@@ -10,16 +10,20 @@ using namespace std;
 int main() {
 	int times;
 	int num;
+	int n = 1;
+	int col, row;
 
 	cin >> times;
 	for (int i = 0; i < times; i++) {
 		cin >> num;
-		for (int row = num; row >= 0; row--) {
-			for (int col = row + 1; col <= num; col++) {
-				cout << col;
+		for (row = num; row >= 0; row--) {
+			for (col = row + 1; col <= num; col++) {
+				cout << n;
+				n++;
 			}
 			cout << endl;
 		}
-		
+		n = 1, row = 0;
 	}
+	
 }
