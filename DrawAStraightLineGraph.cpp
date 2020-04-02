@@ -1,6 +1,6 @@
 /* **************************
-Problem : Á÷¼± ±×·¡ÇÁ Ãâ·ÂÇÏ±â
-20191584 ³²»ó¸²
+Problem : ì§ì„  ê·¸ëž˜í”„ ì¶œë ¥í•˜ê¸°
+20191584 ë‚¨ìƒë¦¼
 ****************************/
 
 #include <iostream>
@@ -16,13 +16,16 @@ int main() {
 		cin >> num;
 
 		int len = num / 2;
-		
-		for (int n = num; n >0; n--) {
-			for (int j = 0; j < num; j++) {
-				if (j < n - 1)
-					cout << ".";
-				else
+		int n = num;
+
+		for (int j = num; j > 0; j--) {
+			for (int k = 0; k < num; k++) {
+				if (j == k + 1 && j-1 == len)
+					cout << "0";
+				else if (j == k+1)
 					cout << "*";
+				else
+					cout << ".";
 			}
 			cout << endl;
 		}
