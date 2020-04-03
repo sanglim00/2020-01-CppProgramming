@@ -15,15 +15,18 @@ int main() {
 	for (int i = 0; i < times; i++) {
 		cin >> num;
 		int n = 1;
-		
+		int p;
+		int n_now;
 		for (int row = num; row > 0; row--) {
 			cout << n << " ";
+			n_now = n;
 			n += 1;
-			int p = num-1;
+			p = num-1;
+			
 			for (int col = 0; col < num-row; col++) {
-				
-				cout << n + p-1  << " ";
-				p--;
+				n_now += p;
+				cout << n_now << " ";
+				p -= 1;
 			}
 			cout << endl;
 		}	
