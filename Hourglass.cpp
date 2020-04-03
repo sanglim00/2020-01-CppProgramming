@@ -12,20 +12,21 @@ int main() {
 
 	cin >> times;
 	for (int i = 0; i < times; i++) {
-		
+
 		cin >> num;
 
-		int n = 0;
-		int len = num / 2;
-		for (int j = num; j >0; j--) {
-	
-			for(int k = 0; k< num;k++){
-				if (k < num / 2&& k<j -1) {
+		
+		for (int j = num; j > 0; j--) {
+			cout << endl;
+			
+			for (int k = 0; k < num; k++) {
+				if (j <= num/2+1 && k < j-1) {
 					cout << "-";
-					n++;
 				}
-				
-				else{
+				else if (j > num / 2 && j <= k) {
+					cout << "-";
+				}
+				else {
 					if (k % 2 == 1)
 						if (j % 2 == 0)
 							cout << "*";
@@ -38,10 +39,7 @@ int main() {
 							cout << "+";
 					}
 				}
-					
-					
 			}
-			cout << endl;
 		}
 	}
 }
