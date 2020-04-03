@@ -10,20 +10,22 @@ using namespace std;
 int main() {
 	int times;
 	int num;
-	int n = 1;
-	int col, row;
 
 	cin >> times;
 	for (int i = 0; i < times; i++) {
 		cin >> num;
-		for (row = num; row >= 0; row--) {
-			for (col = row + 1; col <= num; col++) {
-				cout << n;
-				n++;
+		int n = 1;
+		
+		for (int row = num; row > 0; row--) {
+			cout << n << " ";
+			n += 1;
+			int p = num-1;
+			for (int col = 0; col < num-row; col++) {
+				
+				cout << n + p-1  << " ";
+				p--;
 			}
 			cout << endl;
-		}
-		n = 1, row = 0;
+		}	
 	}
-	
 }
