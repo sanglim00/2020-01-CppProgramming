@@ -1,16 +1,17 @@
 /* **************************
-Problem : »ï°¢ÇüÀÇ Á¾·ù 02
-20191584 ³²»ó¸²
+Problem : ì‚¼ê°í˜•ì˜ ì¢…ë¥˜ 02
+20191584 ë‚¨ìƒë¦¼
 ****************************/
 
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
 int main() {
-	int times, num;
-	int Carray[3][2];
-	int a, b, c;
+	double times, num;
+	double Carray[3][2];
+	double a, b, c;
 
 	cin >> times;
 	for (int i = 0; i < times; i++) {
@@ -20,19 +21,19 @@ int main() {
 				Carray[j][k] = num;
 			}
 		}
-		a = (Carray[1][0] - Carray[0][0]) * (Carray[1][0] - Carray[0][0]) + (Carray[1][1] - Carray[0][1]) * (Carray[1][1] - Carray[0][1]);
-		b = (Carray[2][0] - Carray[0][0]) * (Carray[2][0] - Carray[0][0]) + (Carray[2][1] - Carray[0][1]) * (Carray[2][1] - Carray[0][1]);
-		c = (Carray[2][0] - Carray[1][0]) * (Carray[2][0] - Carray[1][0]) + (Carray[2][1] - Carray[1][1]) * (Carray[2][1] - Carray[1][1]);
+		a = sqrt((Carray[1][0] - Carray[0][0]) * (Carray[1][0] - Carray[0][0]) + (Carray[1][1] - Carray[0][1]) * (Carray[1][1] - Carray[0][1]));
+		b = sqrt((Carray[2][0] - Carray[0][0]) * (Carray[2][0] - Carray[0][0]) + (Carray[2][1] - Carray[0][1]) * (Carray[2][1] - Carray[0][1]));
+		c = sqrt((Carray[2][0] - Carray[1][0]) * (Carray[2][0] - Carray[1][0]) + (Carray[2][1] - Carray[1][1]) * (Carray[2][1] - Carray[1][1]));
 		
-		int Slope = ((Carray[1][1] - Carray[0][1]) / (Carray[1][0] - Carray[0][0])) == ((Carray[2][1] - Carray[1][1]) / (Carray[2][0] - Carray[1][0]));
-		if (a + b == c || a + c == b || b + c == a)
+		bool Slope = ((Carray[1][1] - Carray[0][1]) / (Carray[1][0] - Carray[0][0])) == ((Carray[2][1] - Carray[1][1]) / (Carray[2][0] - Carray[1][0]));
+		
+		if (a*a + b*b == c*c || a*a + c*c == b*b || b*b + c*c == a*a)
 			cout << 1 << endl;
 		else if (Slope)
 			cout << 0 << endl;
-		else if (a + b < c || a + c < b || b + c < a)
+		else if (a*a + b*b < c*c || a*a + c*c < b*b || b*b +c* c < a*a)
 			cout << 2 << endl;
-		else if (a + b > c || a + c > b || b + c > a)
+		else if (a*a + b*b > c*c || a*a + c*c > b*b || b*b + c*c > a*a)
 			cout << 3 << endl;
-		
 	}
 }
