@@ -12,7 +12,6 @@ int main() {
 	int times;
 	int x1, x2, x3, x4, y1, y2, y3, y4;
 
-
 	cin  >> times;
 	for (int i = 0; i < times; i++) {
 
@@ -22,13 +21,19 @@ int main() {
 			if (y2 < y3 && y3 < y1) {
 				cout << 1 << endl;
 			}
-			else if (y2 == y3 || y3 == y1|| y2 == y4 || y4 == y1) {
+			else if (y1 == y3 ||y2 ==y3) {
 				cout << 2 << endl;
 			}
+			else {
+				cout << 0 << endl;
+			}
 		}
-		else if (x3 == x1 || x1 == x4) {
-			if (y2 <= y3 && y3 <= y1) {
+		else if (x3 == x1 || x1 == x4 ) {
+			if (y2 <= y3 && y3 <= y1 || y2 <= y4 && y4 <= y1) {
 				cout << 2 << endl;
+			}
+			else {
+				cout << 0 << endl;
 			}
 		}
 		else {
