@@ -1,6 +1,6 @@
 /* **************************
-Problem : ¼öÁ÷ ¼öÆò ¼±ºÐÀÇ ±³Â÷
-20191584 ³²»ó¸²
+Problem : ìˆ˜ì§ ìˆ˜í‰ ì„ ë¶„ì˜ êµì°¨
+20191584 ë‚¨ìƒë¦¼
 ****************************/
 
 #include <iostream>
@@ -22,19 +22,13 @@ int main() {
 			if (y2 < y3 && y3 < y1) {
 				cout << 1 << endl;
 			}
-			else if (y2 == y3 || y3 == y1) {
+			else if (y2 == y3 || y3 == y1|| y2 == y4 || y4 == y1) {
 				cout << 2 << endl;
-			}
-			else {
-				cout << 0 << endl;
 			}
 		}
 		else if (x3 == x1 || x1 == x4) {
-			if (y2 == y3 || y3 == y1) {
+			if (y2 <= y3 && y3 <= y1) {
 				cout << 2 << endl;
-			}
-			else {
-				cout << 0 << endl;
 			}
 		}
 		else {
