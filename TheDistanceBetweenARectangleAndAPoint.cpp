@@ -1,6 +1,6 @@
 /* **************************
-Problem : »ç°¢Çü°ú Á¡°úÀÇ °Å¸®
-20191584 ³²»ó¸²
+Problem : ì‚¬ê°í˜•ê³¼ ì ê³¼ì˜ ê±°ë¦¬
+20191584 ë‚¨ìƒë¦¼
 ****************************/
 
 #include <iostream>
@@ -11,31 +11,45 @@ using namespace std;
 
 int main() {
 	int times;
-	int x1S, y1S, x2S, y2S;
+	int x1, y1, x2, y2;
 	int px, py;
 	int d1, d2;
 
 	cin >> times;
 	for (int i = 0; i < times; i++) {
 
-		cin >> x1S >> y1S >> x2S >> y2S;
+		cin >> x1 >> y1 >> x2 >> y2;
 		cin >> px >> py;
 
-		if ((x1S <= px && px <= x2S) && (y1S <= py && py <= y2S))
+		if ((x1 <= px && px <= x2) && (y1 <= py && py <= y2))
 			cout << 0 << " " << 0 << endl;
-		else if (x1S <= px && px <= x2S) {
-				d2 = (py - y2S) * (py - y2S);
-				d1 = abs(py - y2S);
+		else if (x1 <= px && px <= x2) {
+			if (abs(py - y1) > abs(py - y2)) {
+				d2 = (py - y2) * (py - y2);
+				d1 = abs(py - y2);
 				cout << d2 << " " << d1 << endl;
+			}
+			else {
+				d2 = (py - y1) * (py - y1);
+				d1 = abs(py - y1);
+				cout << d2 << " " << d1 << endl;
+			}
 		}
-		else if (y1S <= py && py <= y2S) {
-			d2 = (px - x2S) * (px - x2S);
-			d1 = abs(px - x2S);
-			cout << d2 << " " << d1 << endl;
+		else if (y1 <= py && py <= y2) {
+			if (abs(px - x1) > abs(px - x2)) {
+				d2 = (px - x2) * (px - x2);
+				d1 = abs(px - x2);
+				cout << d2 << " " << d1 << endl;
+			}
+			else {
+				d2 = (px - x1) * (px - x1);
+				d1 = abs(px - x1);
+				cout << d2 << " " << d1 << endl;
+			}
 		}
 		else {
-			d2 = (py - y2S) * (py - y2S) + (px - x2S) * (px - x2S);
-			d1 = abs(py - y2S) + abs(px - x2S);
+			d2 = (py - y2) * (py - y2) + (px - x2) * (px - x2);
+			d1 = abs(py - y2) + abs(px - x2);
 			cout << d2 << " " << d1 << endl;
 		}
 	}
