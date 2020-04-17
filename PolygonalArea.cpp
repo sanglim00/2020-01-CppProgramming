@@ -1,6 +1,6 @@
 /* **************************
-Problem : ´Ù°¢ÇüÀÇ ¸éÀû
-20191584 ³²»ó¸²
+Problem : ë‹¤ê°í˜• ë©´ì 
+20191584 ë‚¨ìƒë¦¼
 ****************************/
 
 #include <iostream>
@@ -12,22 +12,24 @@ int main() {
 	int times, num;
 	int x, y, D;
 	int area = 0;
-	int arrX[50] = {};
-	int arrY[50] = {};
 
 	cin >> times;
 	for (int i = 0; i < times; i++) {
 		cin >> num;
+		int *arrX = new int[num];
+		int* arrY = new int[num];
 		for (int j = 0; j < num; j++) {
 			cin >> x >> y;
 			arrX[j] = x;
 			arrY[j] = y;
 		}
-		for (int a = 0; a < num-1 ; a++) {
-			area += (arrX[a] + arrX[a + 1]) * (arrY[a + 1] - arrY[a]);	
+		area = (arrX[0] + arrX[num - 1]) * (arrY[0] - arrY[num - 1]);
+		for (int a = 0; a < num - 1; a++) {
+			area += (arrX[a] + arrX[a + 1]) * (arrY[a + 1] - arrY[a]);
 		}
-		area += (arrX[0] + arrX[num-1]) * (arrY[0] - arrY[num-1]);	
 		D = (area > 0) ? 1 : -1;
-		cout << abs(area) <<" " << D << endl;
+		cout << abs(area) << " " << D << endl;
+		delete[] arrX;
+		delete[] arrY;
 	}
 }
