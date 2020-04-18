@@ -1,6 +1,6 @@
 /* **************************
-Problem : ∆–∏Æ∆º ∫Ò∆Æ
-20191584 ≥≤ªÛ∏≤
+Problem : Ìå®Î¶¨Ìã∞ ÎπÑÌä∏
+20191584 ÎÇ®ÏÉÅÎ¶º
 ****************************/
 
 #include <iostream>
@@ -17,12 +17,13 @@ void to_bin(int n) {
 	}
 }
 void to_dec(int *arr) {
-	int n = 1;
+	unsigned int n = 1;
 	for (int i = 31; i >= 0; i--) {
 		if (arr[i] == 1)
 			sum += n;
 		n *= 2;
 	}
+	//sum += n * 2;
 	cout << sum << endl;
 }
 int main() {
@@ -45,5 +46,6 @@ int main() {
 		else
 			cout << num << endl;
 		count = 0;
+		sum = 0;
 	}
 }
