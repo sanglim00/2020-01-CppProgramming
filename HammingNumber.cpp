@@ -1,6 +1,6 @@
 /* **************************
-Problem : ÇØ¹Ö¼ö
-20191584 ³²»ó¸²
+Problem : í•´ë°ìˆ˜
+20191584 ë‚¨ìƒë¦¼
 ****************************/
 
 #include <iostream>
@@ -16,7 +16,7 @@ void Hamming(int num) {
 	hamming.push_back(ham);
 	for (int i = 0; i < num; i++) {
 		for (int j = 0; j < 3; j++) {
-			hamming.push_back(ham * Hamlist[j]);
+				hamming.push_back(ham * Hamlist[j]);
 		}
 		ham++;
 	}
