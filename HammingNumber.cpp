@@ -12,20 +12,19 @@ using namespace std;
 void Hamming(int num) {
 	int Hamlist[3] = { 2, 3, 5 };
 	int ham = 1;
+	int n = 1;
 	vector<long int> hamming;
 	hamming.push_back(ham);
 	for (int i = 0; i < num; i++) {
 		for (int j = 0; j < 3; j++) {
-				hamming.push_back(ham * Hamlist[j]);
+			hamming.push_back(ham * Hamlist[j]);
 		}
 		ham++;
 	}
 	sort(hamming.begin(), hamming.end());
 	hamming.erase(unique(hamming.begin(), hamming.end()), hamming.end());
 	
-	for (int i = 0; i < num; i++)
-		cout << hamming[i] << " ";
-	cout << endl;
+	cout << hamming[num-1] << endl;
 }
 
 int main() {
