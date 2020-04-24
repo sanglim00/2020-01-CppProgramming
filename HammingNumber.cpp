@@ -6,36 +6,35 @@ Problem : 해밍수
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
 void Hamming(int num) {
-	int Hamlist[3] = { 2, 3, 5 };
-	int ham = 1;
-	int n = 1;
 	vector<long int> hamming;
-	hamming.push_back(ham);
-	for (int i = 0; i < num; i++) {
-		for (int j = 0; j < 3; j++) {
-			hamming.push_back(ham * Hamlist[j]);
+
+	for (int i = 0; i < 30; i++) {
+		hamming.push_back(pow(2, i));
+		for (int j = 0; j < 19; j++) {
+			hamming.push_back(pow(3, j));
+			for (int k = 0; k < 13; k++) {
+				hamming.push_back(pow(5, k));
+				hamming.push_back(pow(2, i)*pow(3, j)* pow(5, k));
+			}
 		}
-		ham++;
 	}
 	sort(hamming.begin(), hamming.end());
 	hamming.erase(unique(hamming.begin(), hamming.end()), hamming.end());
-	
-	cout << hamming[num-1] << endl;
-}
 
+	cout << hamming[num] << endl;
+
+}
 int main() {
 	int times, num;
-
 	cin >> times;
 	for (int i = 0; i < times; i++) {
-
 		cin >> num;
 		Hamming(num);
-		
 	}
-
+	return 0;
 }
