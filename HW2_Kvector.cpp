@@ -1,8 +1,8 @@
-//Kvector ¸¸µé±â
-//Kvector class ÀÇ ¸â¹ö ÇÔ¼öµéÀ» class ¿ÜºÎ¿¡ ±¸ÇöÇÏ¶ó.
-//(1) »ý¼ºÀÚ Kvector(int sz, int value) : sz °³ÀÇ Á¤¼ö ¹è¿­À» m ¿¡ ÇÒ´ç¹Þ¾Æ ¸ðµç ¿ø¼ÒÀÇ °ªÀ» value ·Î ÃÊ±âÈ­ÇÑ´Ù.
-//sz °¡ 0ÀÎ °æ¿ì´Â m Àº NULL ÀÌ µÈ´Ù.
-//(2) ±íÀº º¹»ç¸¦ ±¸ÇöÇÏ´Â º¹»ç »ý¼ºÀÚ
+//Kvector ë§Œë“¤ê¸°
+//Kvector class ì˜ ë©¤ë²„ í•¨ìˆ˜ë“¤ì„ class ì™¸ë¶€ì— êµ¬í˜„í•˜ë¼.
+//(1) ìƒì„±ìž Kvector(int sz, int value) : sz ê°œì˜ ì •ìˆ˜ ë°°ì—´ì„ m ì— í• ë‹¹ë°›ì•„ ëª¨ë“  ì›ì†Œì˜ ê°’ì„ value ë¡œ ì´ˆê¸°í™”í•œë‹¤.
+//sz ê°€ 0ì¸ ê²½ìš°ëŠ” m ì€ NULL ì´ ëœë‹¤.
+//(2) ê¹Šì€ ë³µì‚¬ë¥¼ êµ¬í˜„í•˜ëŠ” ë³µì‚¬ ìƒì„±ìž
 
 #include <iostream>
 
@@ -20,7 +20,7 @@ public :
 	void clear();
 	int size();
 };
-Kvector::Kvector(int sz = 0, int value = 0) {
+Kvector::Kvector(int sz , int value ) {
 	len = sz;
 	if (sz == 0) m = NULL;
 	else if(sz>0){
