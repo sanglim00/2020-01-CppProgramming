@@ -1,41 +1,61 @@
 /* **************************
-Problem : °ıÈ£
-20191584 ³²»ó¸²
+Problem : ê´„í˜¸
+20191584 ë‚¨ìƒë¦¼
 ****************************/
 #include <iostream>
 #include <cstring>
-#include <vector>
+#include <stack>
 
 using namespace std;
 
+bool match(char a, char b) {
+	switch (a) {
+	case '(':
+		if (b == ')')
+			return true;
+		else
+			return false;
+		break;
+	case '{':
+		if (b == '}')
+			return true;
+		else
+			return false;
+		break;
+	case '[':
+		if (b == ']')
+			return true;
+		else
+			return false;
+		break;
+	}
+}
 int main() {
-	int times, count = 0;
+	int times, answer;
 	string str;
-	vector<char> vector;
+	stack<char> STK;
+	char temp;
 
 	cin >> times;
 	for (int i = 0; i < times; i++) {
 		cin >> str;
-		char* buffer = new char[str.length()];
+		char* buffer = new char[str.length()+1];
 		str.copy(buffer, str.length() + 1);
 		for (int j = 0; j < str.length(); j++) {
-			if (buffer[j] == '(' || buffer[j] == '{' || buffer[j] == '[') {
-				vector.push_back(buffer[j]); 
-				count++;
-			}
+			if (buffer[j] == '(' || buffer[j] == '{' || buffer[j] == '[') STK.push(buffer[i]);
 			else if (buffer[j] == ')' || buffer[j] == '}' || buffer[j] == ']') {
-				count--;
-				int k = 0;
-				while(k != vector.size()){
-					if (vector.at(k) == buffer[j]) {
-						vector.erase(vector.begin() + k);
-						break;
-					}
-					k++;
+				if (STK.empty()) answer = 0;
+				else {
+					temp = STK.top();
+					STK.pop();
+					if (match(temp, buffer[j]) == false) answer = 0;
+					else answer = 1;
 				}
 			}
-		}if (vector.empty() && count == 0) cout << 1 << endl;
-		else cout << 0 << endl;
+		}
+		if (STK.empty()) answer = 1;
+		else answer = 0;
+		cout << answer << endl;
 		
 	}
 }
