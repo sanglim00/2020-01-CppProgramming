@@ -1,3 +1,8 @@
+/* **************************
+Problem : 행렬곱셈
+20191584 남상림
+****************************/
+
 #include <iostream>
 
 using namespace std;
@@ -20,13 +25,6 @@ int main() {
 			}
 		}
 
-		for (int j = 0; j < r; j++) {
-			for (int k = 0; k < s; k++) {
-				cout << arr[j][k] << " ";
-			}
-			cout << endl;
-		}
-
 		int** arr2 = new int* [s];
 		for (int j = 0; j < s; j++) arr2[j] = new int[t];
 
@@ -35,13 +33,6 @@ int main() {
 				cin >> num;
 				arr2[j][k] = num;
 			}
-		}
-
-		for (int j = 0; j < s; j++) {
-			for (int k = 0; k < t; k++) {
-				cout << arr2[j][k] << " ";
-			}
-			cout << endl;
 		}
 
 		int** multi = new int* [r];
