@@ -3,33 +3,11 @@ Problem : 괄호
 20191584 남상림
 ****************************/
 #include <iostream>
-#include <cstring>
+#include <string>
 #include <stack>
 
 using namespace std;
 
-bool match(char a, char b) {
-	switch (a) {
-	case '(':
-		if (b == ')')
-			return true;
-		else
-			return false;
-		break;
-	case '{':
-		if (b == '}')
-			return true;
-		else
-			return false;
-		break;
-	case '[':
-		if (b == ']')
-			return true;
-		else
-			return false;
-		break;
-	}
-}
 int main() {
 	int times, answer;
 	string str;
@@ -43,12 +21,12 @@ int main() {
 		str.copy(buffer, str.length() + 1);
 		for (int j = 0; j < str.length(); j++) {
 			if (buffer[j] == '(' || buffer[j] == '{' || buffer[j] == '[') STK.push(buffer[i]);
-			else if (buffer[j] == ')' || buffer[j] == '}' || buffer[j] == ']') {
+			if (buffer[j] == ')' || buffer[j] == '}' || buffer[j] == ']') {
 				if (STK.empty()) answer = 0;
 				else {
 					temp = STK.top();
 					STK.pop();
-					if (match(temp, buffer[j]) == false) answer = 0;
+					if (temp!= buffer[j]) answer = 0;
 					else answer = 1;
 				}
 			}
