@@ -24,7 +24,6 @@ int main() {
 				arr[j][k] = num;
 			}
 		}
-
 		int** arr2 = new int* [s];
 		for (int j = 0; j < s; j++) arr2[j] = new int[t];
 
@@ -34,16 +33,16 @@ int main() {
 				arr2[j][k] = num;
 			}
 		}
-
 		int** multi = new int* [r];
 		for (int j = 0; j < r; j++) multi[j] = new int[t];
 
-		for (int a = 0; a < r; r++) {
+		for (int a = 0; a < r; a++) {
 			for (int b = 0; b < t; b++) {
-				multi[a][b] = 0;
+				int sum = 0;
 				for (int c = 0; c < s; c++) {
-					multi[a][b] += arr[a][c] * arr2[c][b];
+					sum += arr[a][c] * arr2[c][b];
 				}
+				multi[a][b] = sum;
 			}
 		}
 		for (int j = 0; j < r; j++) {
