@@ -12,7 +12,7 @@ using namespace std;
 struct element { char y, x; };
 element moveD[4] = { {1, 0}, {-1, 0}, {0, 1}, {0, -1} };
 
-int room[100][100];
+char room[100][100];
 int visited[100][100];
 int m, n, cnt;
 
@@ -24,7 +24,7 @@ void HowManyRoom(int y, int x) {
         int next_X = x + moveD[i].x;
 
         if (0 <= next_Y && next_Y < n && 0 <= next_X && next_X < m) {
-            if (room[next_Y][next_X] == 1 && visited[next_Y][next_X] == 0)
+            if (room[next_Y][next_X] =='.' && visited[next_Y][next_X] == 0)
                 HowManyRoom(next_Y, next_X);
         }
     }
@@ -40,22 +40,28 @@ int main() {
         for (int j = 0; j < n; j++) {
             cin >> line;
             for (int k = 0; k < m; k++) {
-                if (line[k] == '+') room[j][k] = 0;
-                else if (line[k] == '.') room[j][k] = 1;
+                room[j][k] = line[k];
             }
+        }
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < m; k++) {
+                cout << visited[j][k];
+            }
+            cout << endl;
         }
 
         vector<int>Rcount;
 
         for (int j = 0; j < n; j++) {
             for (int k = 0; k < m; k++) {
-                if (room[j][k] == 1 && visited[j][k] == 0) {
+                if (room[j][k] == '.' && visited[j][k] == 0) {
                     cnt = 0;
                     HowManyRoom(j, k);
                     Rcount.push_back(cnt);
                 }
             }
         }
+
         cout << Rcount.size() << endl;
         sort(Rcount.begin(), Rcount.end(), greater<int>());
         for (int c = 0; c < Rcount.size(); c++) cout << Rcount[c] << " ";
