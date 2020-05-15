@@ -38,6 +38,20 @@ void to_dec(int* arr) {
 	cout << sum << endl;
 }
 
+void to____dec(int* arr) {
+	int n = 1;
+	unsigned int sum = 0;
+	for (int i = 31; i >=0; i--) {
+		if (i == 31 || i == 30 || i == 28 || i == 24 || i == 16||i ==0) continue; 
+		else{
+			if (arr[i] == 1) {
+				sum += n;
+			}n *= 2;
+		}
+	}
+	cout <<sum<< endl;
+}
+
 void getEncodedValue(int* arr) {
 	int cnt = 0, cnt2 = 0, cnt3 = 0, cnt4 = 0, cnt5 = 0;
 
@@ -108,24 +122,36 @@ void getDecodedeValue(int* arr) {
 	if (cnt % 2 == 1) {
 		if (arr[31] == 0) sum -= 1;
 	}
+	else
+		if (arr[31] == 1) sum -= 1;
 	if (cnt2 % 2 == 1) {
 		if (arr[30] == 0) sum -= 2;
 	}
+	else
+		if (arr[30] == 1) sum -= 2;
 	if (cnt3 % 2 == 1) {
 		if (arr[28] == 0) sum -= 4;
 	}
+	else
+		if (arr[28] == 1) sum -= 4;
 	if (cnt4 % 2 == 1) {
 		if (arr[24] == 0) sum -= 8;
 	}
+	else
+		if (arr[24] == 1) sum -= 8;
 	if (cnt5 % 2 == 1) {
 		if (arr[16] == 0) sum -= 16;
 	}
+	else
+		if (arr[16] == 1) sum -= 16;
 	arr[sum] = 1;
 
 	for (int i = 31; i >= 0; i--) {
 		if (i == 31 || i == 30 || i == 28 || i == 24 || i == 16) arr[i] = NULL;
 	}
-	to_dec(arr);
+
+	to____dec(arr);
+	
 }
 
 int main() {
