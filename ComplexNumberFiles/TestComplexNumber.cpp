@@ -1,6 +1,6 @@
 /***************************
 Problem : 복소수
-20191584 
+20191584 남상림
 ****************************/
 #include <fstream>
 #include <cstdlib>
@@ -9,7 +9,7 @@ Problem : 복소수
 void testSimpleCase();
 void testDataFromFile();
 
-void main(void){
+int main(void){
 	testSimpleCase();
 	testDataFromFile();
 }
